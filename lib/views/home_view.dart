@@ -7,11 +7,11 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home'),
+        title: const Text('SpectraSense'),
       ),
       body: const Center(
         child: Text(
-          'Welcome!',
+          'Welcome to the SpectraSense App. Please select an option below.',
           style: TextStyle(fontSize: 24),
         ),
       ),

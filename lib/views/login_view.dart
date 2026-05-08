@@ -35,7 +35,7 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold (
-      appBar: AppBar(title: const Text('Login')
+      appBar: AppBar(title: const Text('Login to SpectraSense')
       ,),
       body: FutureBuilder(
         future: Firebase.initializeApp(
@@ -104,16 +104,33 @@ class _LoginViewState extends State<LoginView> {
                 } else {
                   print('Error: ${e.message}');
                   print('eeeee');
-                  ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Login failed: $e')));
+                  ScaffoldMessenger.of(context).showMaterialBanner(
+                    MaterialBanner(content: Text('Login failed. Try again with a different email and/or password.'),
+                        leading: Icon(Icons.error), backgroundColor: Colors.redAccent, actions: [
+                          TextButton(
+                              onPressed: () {
+                                ScaffoldMessenger.of(context).hideCurrentMaterialBanner();
+                              },
+                              child: const Text('Dismiss')
+                          )
+                        ]),
+                  );
                   //IVALID CREDENTIAL FOR BOTH EMAIL AND PASSOWRD- CODE IS NOT DIFFERENTIATING
 
                 }
               }
               catch (e) {
                 print('Error: $e');
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Login failed: $e')),
+                ScaffoldMessenger.of(context).showMaterialBanner(
+                  MaterialBanner(content: Text('Login failed. Try again with a different email and/or password.'),
+                  leading: Icon(Icons.error), backgroundColor: Colors.redAccent, actions: [
+                    TextButton(
+                      onPressed: () {
+                        ScaffoldMessenger.of(context).hideCurrentMaterialBanner();
+                      },
+                      child: const Text('Dismiss')
+                    )
+                      ]),
                 );
               }
             },
