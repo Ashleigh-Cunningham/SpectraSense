@@ -21,7 +21,7 @@ class _State extends State<HomeView> {
             children: [
               Text(
                   'Welcome to the SpectraSense App. Please select an option below.',
-                  style: TextStyle(fontSize: 24)),
+                  style: TextStyle(fontSize: 12)),
               ElevatedButton(onPressed: () {
                 Navigator.push(context,
                   MaterialPageRoute(builder: (context) => ViewData(),),);

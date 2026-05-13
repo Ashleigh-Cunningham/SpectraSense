@@ -1,6 +1,8 @@
 // ignore_for_file: unused_import
 
 import 'package:brigid/firebase_options.dart';
+import 'package:brigid/views/signup.dart';
+import 'package:brigid/views/home_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -85,9 +87,8 @@ class _LoginViewState extends State<LoginView> {
                 );
               print('user logged in');
               print(userCredential);
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Login successful')),
-              );
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => HomeView(),),);
               }
               on FirebaseAuthException catch (e)
               {
@@ -136,6 +137,11 @@ class _LoginViewState extends State<LoginView> {
             },
             child: const Text ('Login')
                    ),
+            TextButton(onPressed: (){
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => SignUp(),),);
+            }
+                , child: const Text('New User? Sign up here.'))
           ],
         );
         },  
