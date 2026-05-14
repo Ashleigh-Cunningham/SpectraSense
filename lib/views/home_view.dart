@@ -1,5 +1,6 @@
 import 'package:brigid/views/view_data.dart';
 import 'package:brigid/views/settings.dart';
+import 'package:brigid/views/healthcare.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
@@ -21,17 +22,24 @@ class _State extends State<HomeView> {
             children: [
               Text(
                   'Welcome to the SpectraSense App. Please select an option below.',
-                  style: TextStyle(fontSize: 12)),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 17)),
+              SizedBox(height: 20),
               ElevatedButton(onPressed: () {
                 Navigator.push(context,
                   MaterialPageRoute(builder: (context) => ViewData(),),);
               }, child: Text("See Recent Data"),
               ),
+              SizedBox(height: 20),
               ElevatedButton(onPressed: () {
                 Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ViewData(),),);
-              }, child: Text("See Recent Data"),
-              )
+                  MaterialPageRoute(builder: (context) => Healthcare(),),);
+              }, child: Text("Contact or send data to healthcare provider."),
+              ),
+              SizedBox(height: 40),
+              Text(
+                  'Your stats at a glance:',
+                  style: TextStyle(fontSize: 24)),
             ]
         ),
       ),

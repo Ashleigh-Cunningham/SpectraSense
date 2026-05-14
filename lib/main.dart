@@ -14,7 +14,7 @@ void main() {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color.fromARGB(255, 232, 6, 112),
-          surface: const Color.fromARGB(255, 232, 6, 112)
+          surface: const Color.fromARGB(255, 1, 190, 255)
         ),
       ),
       home: const Routepage(),
