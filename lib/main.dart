@@ -6,15 +6,18 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:brigid/views/home_view.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(
     MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color.fromARGB(255, 232, 6, 112),
-          surface: const Color.fromARGB(255, 1, 190, 255)
+          surface: const Color.fromARGB(255, 200, 190, 255)
         ),
       ),
       home: const Routepage(),
@@ -27,28 +30,12 @@ class Routepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: Firebase.initializeApp(
-        options:DefaultFirebaseOptions.currentPlatform
-    ),
-      builder: (context, snapshot) {
-        switch (snapshot.connectionState) {
-          case ConnectionState.done:
-            final user = FirebaseAuth.instance.currentUser;
-            if (user != null) {
-              if (user?.emailVerified ?? false) {
-                return const HomeView();
-              }
-            } else {
-              return const LoginView();
-            }
-          default:
-            return const Scaffold(
-              body: Center(child: CircularProgressIndicator()),
-            );
-        }
-        return const SizedBox();
-      },
-    );
+    final user = FirebaseAuth.instance.currentUser;
+
+    if (user != null && (user.emailVerified)) {
+      return const HomeView();
+    } else {
+      return const LoginView();
+    }
   }
 }

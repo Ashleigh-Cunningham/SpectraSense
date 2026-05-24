@@ -74,6 +74,7 @@ class _RegisterViewState extends State<RegisterView> {
               hintText: "  Password",
             )),
             TextButton(
+            style: ButtonStyle(backgroundColor: WidgetStateProperty.all(Colors.red)),
             onPressed: () async {
             
         
