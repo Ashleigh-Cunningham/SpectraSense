@@ -49,6 +49,7 @@ class _forgotState extends State<forgotView> {
                   SnackBar(content: Text('Email sent. Check your inbox and SPAM folder. The email may take a minute or two to come through.')),
                 );
                 await FirebaseAuth.instance.sendPasswordResetEmail(email: _email.text);
+                Navigator.pop(context);
               },
                   child: const Text('Submit'))
             ],
