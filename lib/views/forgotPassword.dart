@@ -32,43 +32,27 @@ class _forgotState extends State<forgotView> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold (
-      appBar: AppBar(title: const Text('Login to SpectraSense')
+   Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Forgot your password?')
         ,),
-      body: FutureBuilder(
-        future: Firebase.initializeApp(
-          options: DefaultFirebaseOptions.currentPlatform,
-        ),
-        builder: (context, snapshot) {
-          switch (snapshot.connectionState) {
-            case ConnectionState.none:
-
-              break;
-            case ConnectionState.waiting:
-              return const Center(child: CircularProgressIndicator());
-            case ConnectionState.active:
-              return const Center(child: CircularProgressIndicator());
-            case ConnectionState.done:
-              if (snapshot.hasError) {
-                return const Center(child: Text('Something went wrong'));
-              }
-              // Firebase is initialized successfully
-              print('Firebase initialized successfully');
-              break;
-          }
-          return Column(
+      body: Column(
             children: [
               TextField(controller: _email,
                   enableSuggestions: false,
                   autocorrect: false,
                   decoration: const InputDecoration(
                     hintText: "  Email",
-                  ))
+                  )),
+              TextButton(onPressed: () async {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Email sent. Check your inbox and SPAM folder. The email may take a minute or two to come through.')),
+                );
+                await FirebaseAuth.instance.sendPasswordResetEmail(email: _email.text);
+              },
+                  child: const Text('Submit'))
             ],
-          );
-        },
-      )
-      ,);
+          )
+        );
+        }
   }
-}

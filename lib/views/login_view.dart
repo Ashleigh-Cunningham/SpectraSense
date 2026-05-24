@@ -3,6 +3,7 @@
 import 'package:brigid/firebase_options.dart';
 import 'package:brigid/views/signup.dart';
 import 'package:brigid/views/forgotPassword.dart';
+import 'package:brigid/views/register_view.dart';
 import 'package:brigid/views/home_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -103,6 +104,13 @@ class _LoginViewState extends State<LoginView> {
                 MaterialPageRoute(builder: (context) => forgotView(),),);
             },
               child: const Text('Forgot Password?')
+          ),
+          TextButton(
+              onPressed: () {
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => RegisterView(),),);
+              },
+              child: const Text('New User? Click here!')
           ),
         ],
       ),
