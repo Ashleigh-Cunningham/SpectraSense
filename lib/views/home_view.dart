@@ -1,3 +1,4 @@
+import 'package:brigid/views/login_view.dart';
 import 'package:brigid/views/view_data.dart';
 import 'package:brigid/views/settings.dart';
 import 'package:brigid/views/healthcare.dart';
@@ -40,6 +41,11 @@ class _State extends State<HomeView> {
               Text(
                   'Your stats at a glance:',
                   style: TextStyle(fontSize: 24)),
+              ElevatedButton(onPressed: () {
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => LoginView(),),);
+              }, child: Text("Sign Out"),
+              ),
             ]
         ),
       ),

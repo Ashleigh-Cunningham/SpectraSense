@@ -32,7 +32,7 @@ class Routepage extends StatelessWidget {
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser;
 
-    if (user != null && (user.emailVerified)) {
+    if (user != null  && (user.emailVerified)) {
       return const HomeView();
     } else {
       return const LoginView();

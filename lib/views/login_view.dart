@@ -74,14 +74,21 @@ class _LoginViewState extends State<LoginView> {
                   password: password,
                 );
                 final verified = FirebaseAuth.instance.currentUser?.emailVerified;
-                if (!mounted && verified != null && verified) return;
-
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => HomeView(),
-                  ),
-                );
+                if (!mounted) return;
+                if(verified != null && verified)
+                  {
+                    print('USER IS GOING IN WITH VALUE $verified');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomeView(),
+                      ),
+                    );
+                  }
+                else
+                  {
+                    return;
+                  }
 
               } on FirebaseAuthException catch (e) {
 
