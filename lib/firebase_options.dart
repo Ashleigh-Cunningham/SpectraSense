@@ -44,9 +44,9 @@ class DefaultFirebaseOptions {
     apiKey: 'AIzaSyD10NEqAuovs3ZrsngJsnLKt5gq8yMbbA4',
     appId: '1:223345032927:web:989e8dfb0a57f36620f36a',
     messagingSenderId: '223345032927',
-    projectId: 'spectrasense',
-    authDomain: 'spectrasense.firebaseapp.com',
-    storageBucket: 'spectrasense.firebasestorage.app',
+    projectId: 'brigid-cancer-care',
+    authDomain: 'brigid-cancer-care.firebaseapp.com',
+    storageBucket: 'brigid-cancer-care.firebasestorage.app',
     measurementId: 'G-17ZKP6MJNL',
   );
 
@@ -54,35 +54,35 @@ class DefaultFirebaseOptions {
     apiKey: 'AIzaSyCNMBybHUVUF8fDoD6y4BnBlWnIOQmVxB4',
     appId: '1:223345032927:android:e016aebf5eeba0fa20f36a',
     messagingSenderId: '223345032927',
-    projectId: 'spectrasense',
-    storageBucket: 'spectrasense.firebasestorage.app',
+    projectId: 'brigid-cancer-care',
+    storageBucket: 'brigid-cancer-care.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyCUyJBeVtTQeDWXBsezEXgEm1Utj_G8Lq8',
     appId: '1:223345032927:ios:35c94be8d28a0fee20f36a',
     messagingSenderId: '223345032927',
-    projectId: 'spectrasense',
-    storageBucket: 'spectrasense.firebasestorage.app',
-    iosBundleId: 'com.spectrasense',
+    projectId: 'brigid-cancer-care',
+    storageBucket: 'brigid-cancer-care.firebasestorage.app',
+    iosBundleId: 'com.brigidcancercare.brigid',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyCUyJBeVtTQeDWXBsezEXgEm1Utj_G8Lq8',
     appId: '1:223345032927:ios:35c94be8d28a0fee20f36a',
     messagingSenderId: '223345032927',
-    projectId: 'spectrasense',
-    storageBucket: 'spectrasense.firebasestorage.app',
-    iosBundleId: 'com.spectrasense',
+    projectId: 'brigid-cancer-care',
+    storageBucket: 'brigid-cancer-care.firebasestorage.app',
+    iosBundleId: 'com.brigidcancercare.brigid',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
     apiKey: 'AIzaSyD10NEqAuovs3ZrsngJsnLKt5gq8yMbbA4',
     appId: '1:223345032927:web:6d44b1f8b454c0c420f36a',
     messagingSenderId: '223345032927',
-    projectId: 'spectrasense',
-    authDomain: 'spectrasense.firebaseapp.com',
-    storageBucket: 'spectrasense.firebasestorage.app',
+    projectId: 'brigid-cancer-care',
+    authDomain: 'brigid-cancer-care.firebaseapp.com',
+    storageBucket: 'brigid-cancer-care.firebasestorage.app',
     measurementId: 'G-4N8SHSZWN4',
   );
 }
