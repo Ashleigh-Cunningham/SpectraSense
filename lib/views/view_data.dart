@@ -9,11 +9,13 @@ class ViewData extends StatelessWidget {
       appBar: AppBar(
         title: const Text('SpectraSense'),
       ),
-      body: const Center(
-        child: Text(
-          'Welcome to the SpectraSense App. Please select an option below.',
-          style: TextStyle(fontSize: 24),
-        ),
+      body: const Column(
+        children: [
+          Text(
+            'Here\'s the data view page. Here you can view all your data in the tables below.',
+            style: TextStyle(fontSize: 12),
+          ),
+        ]
       ),
     );
   }

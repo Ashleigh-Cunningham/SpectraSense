@@ -74,6 +74,7 @@ class _RegisterViewState extends State<RegisterView> {
               hintText: "  Password",
             )),
             TextButton(
+            style: ButtonStyle(backgroundColor: WidgetStateProperty.all(Colors.red)),
             onPressed: () async {
             
         
@@ -84,7 +85,11 @@ class _RegisterViewState extends State<RegisterView> {
                 email: email,
                 password: password
                 );
+              await userCredential.user!.sendEmailVerification();
+              FirebaseAuth.instance.signOut();
+              Navigator.pop(context);
               print(userCredential);
+
               }
             on FirebaseAuthException catch (e) {
               if (e.code == 'weak-password') {
