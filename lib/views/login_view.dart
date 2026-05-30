@@ -85,6 +85,11 @@ class _LoginViewState extends State<LoginView> {
                       ),
                     );
                   }
+                else if(verified != null && !verified){
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Your email is NOT verified. Please verify your email and come back.')),
+                  );
+                }
                 else
                   {
                     return;
@@ -93,13 +98,13 @@ class _LoginViewState extends State<LoginView> {
               } on FirebaseAuthException catch (e) {
 
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(e.message ?? 'Login failed')),
+                  SnackBar(content: Text('Login failed. Please try again with different credentials or contact support.')),
                 );
 
               } catch (e) {
 
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Unexpected error')),
+                  SnackBar(content: Text('This is a catch message. This error was unexpected. Please check your network settings and connections and try again. If failure persists contact support at 613-929-6864 (Canadian number. International charges may apply.')),
                 );
               }
             },
