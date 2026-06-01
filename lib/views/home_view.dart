@@ -52,8 +52,7 @@ class _State extends State<HomeView> {
       bottomNavigationBar: BottomNavigationBar(items: [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home',),
         BottomNavigationBarItem(icon: Icon(Icons.data_usage), label: 'Data',),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.settings), label: 'Settings',),
+        BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings',),
       ],
         onTap: (index) {
           if (index == 0){}
@@ -67,11 +66,7 @@ class _State extends State<HomeView> {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => Settings()));
           }
-
-        }
-
-        ,
-
+        },
       )
 
       ,
