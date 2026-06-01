@@ -17,7 +17,7 @@ void main() async {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
             seedColor: const Color.fromARGB(255, 232, 6, 112),
-            surface: const Color.fromARGB(255, 200, 190, 255)
+            surface: const Color.fromARGB(255, 230, 180, 219)
         ),
       ),
       home: const Routepage(),

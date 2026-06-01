@@ -63,6 +63,10 @@ class _SignUpViewState extends State<SignUp> {
             'Welcome to the SpectraSense App! Please insert a new email and password below.',
             style: TextStyle(fontSize: 15),
           ),
+          Text(
+            'You will be asked to verify your email after pressing Submit. You will not be able to enter the app until you verify your email.',
+            style: TextStyle(fontSize: 11),
+          ),
           TextField(controller: _email,
               enableSuggestions: false,
               autocorrect: false,
