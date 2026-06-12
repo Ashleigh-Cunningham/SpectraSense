@@ -9,11 +9,14 @@ class Healthcare extends StatelessWidget {
       appBar: AppBar(
         title: const Text('SpectraSense'),
       ),
-      body: const Center(
-        child: Text(
-          'Welcome to the SpectraSense App. Please select an option below.',
-          style: TextStyle(fontSize: 24),
-        ),
+      body: Column(
+        children:
+        [
+          Text(
+            'Here you can send data to your healthcare provider through email. Data you select will be sent as a .pdf file to the email address you have provided.',
+            style: TextStyle(fontSize: 19),
+          ),
+        ]
       ),
     );
   }

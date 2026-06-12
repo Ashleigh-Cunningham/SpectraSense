@@ -2,6 +2,7 @@ import 'package:brigid/views/login_view.dart';
 import 'package:brigid/views/view_data.dart';
 import 'package:brigid/views/settings.dart';
 import 'package:brigid/views/healthcare.dart';
+import 'package:brigid/views/self_report.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
@@ -37,6 +38,12 @@ class _State extends State<HomeView> {
                   MaterialPageRoute(builder: (context) => Healthcare(),),);
               }, child: Text("Contact or send data to healthcare provider."),
               ),
+              SizedBox(height: 20,),
+              ElevatedButton(onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => SelfReport()));
+
+
+              }, child: Text("HAI!!! :3 :3 :3")),
               SizedBox(height: 40),
               Text(
                   'Your stats at a glance:',

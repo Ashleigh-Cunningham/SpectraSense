@@ -1,3 +1,4 @@
+import 'package:brigid/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:brigid/views/view_data.dart';
 import 'package:brigid/main.dart';
@@ -13,29 +14,31 @@ class Settings extends StatefulWidget {
       appBar: AppBar(
         title: const Text('SpectraSense'),
       ),
-      body: const Column(
+      body: Column(
         children: [
           Text(
             'Welcome to the SpectraSense App. Please select an option below.',
-            style: TextStyle(fontSize: 24),
+            style: TextStyle(fontSize: 19),
           ),
+          ElevatedButton(onPressed: () {
+            if (themeNotifier.value == ThemeMode.light) {
+              themeNotifier.value = ThemeMode.dark;
+            } else {
+              themeNotifier.value = ThemeMode.light;
+            }
+          }, child: Text("Dark/Light Mode")),
         ]
       ),
-        floatingActionButton: FloatingActionButton(onPressed: () {
-          // 3. Toggle the global themeNotifier value directly!
-          if (themeNotifier.value == ThemeMode.light) {
-            themeNotifier.value = ThemeMode.dark;
-          } else {
-            themeNotifier.value = ThemeMode.light;
-          }
-        },),
         bottomNavigationBar: BottomNavigationBar(items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home',),
           BottomNavigationBarItem(icon: Icon(Icons.data_usage), label: 'Data',),
           BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings',),
         ],
           onTap: (index) {
-            if (index == 0){}
+            if (index == 0){
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => HomeView()));
+            }
             if (index == 1) {
               Navigator.push(
                   context,
@@ -43,8 +46,7 @@ class Settings extends StatefulWidget {
             }
             if (index == 2)
             {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Settings()));
+
             }
           },
         )
