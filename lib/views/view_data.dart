@@ -1,6 +1,6 @@
 import 'package:brigid/views/home_view.dart';
 import 'package:flutter/material.dart';
-import 'package:brigid/views/settings.dart';
+import 'package:brigid/views/settings2.dart';
 
 class ViewData extends StatelessWidget {
   const ViewData({super.key});
@@ -36,7 +36,7 @@ class ViewData extends StatelessWidget {
           if (index == 2)
           {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => Settings()));
+                MaterialPageRoute(builder: (context) => Settings2()));
           }
         },
       ),

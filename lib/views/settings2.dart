@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:brigid/views/view_data.dart';
 import 'package:brigid/main.dart';
 bool isDarkMode = false;
-class Settings extends StatefulWidget {
-  const Settings({super.key});
-  State<Settings> createState() => _Settings();
+class Settings2 extends StatefulWidget {
+  const Settings2({super.key});
+  State<Settings2> createState() => _Settings2();
 }
-  class _Settings extends State<Settings> {
+  class _Settings2 extends State<Settings2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

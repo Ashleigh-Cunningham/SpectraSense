@@ -1,6 +1,6 @@
 import 'package:brigid/views/login_view.dart';
 import 'package:brigid/views/view_data.dart';
-import 'package:brigid/views/settings.dart';
+import 'package:brigid/views/settings2.dart';
 import 'package:brigid/views/healthcare.dart';
 import 'package:brigid/views/self_report.dart';
 import 'package:flutter/material.dart';
@@ -71,7 +71,7 @@ class _State extends State<HomeView> {
           if (index == 2)
           {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => Settings()));
+                MaterialPageRoute(builder: (context) => Settings2()));
           }
         },
       )
