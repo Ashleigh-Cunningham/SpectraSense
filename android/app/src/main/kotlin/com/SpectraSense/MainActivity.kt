@@ -1,4 +1,4 @@
-package com.brigidcancercare.brigid
+package com.SpectraSense
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -21,8 +21,7 @@ class _SelfReport extends State<SelfReport> {
         appBar: AppBar(
           title: const Text('SpectraSense'),
         ),
-        body: SingleChildScrollView(
-          child: Column(
+        body: Column(
             children: [
               Text(
                 "This is the self-reporting section. Here you can make your own notes and review previous notes. Type or scroll down to view your previous notes.",
@@ -67,7 +66,6 @@ class _SelfReport extends State<SelfReport> {
               )
 
         ],
-        ),
         ),
         bottomNavigationBar: BottomNavigationBar(items: [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home',),
