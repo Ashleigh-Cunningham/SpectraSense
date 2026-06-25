@@ -18,25 +18,35 @@ class _SelfReport extends State<SelfReport> {
   final TextEditingController _content = TextEditingController();
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.deepOrangeAccent,
         appBar: AppBar(
           title: const Text('SpectraSense'),
+          backgroundColor: Colors.deepOrangeAccent,
         ),
         body: Column(
             children: [
               Text(
                 "This is the self-reporting section. Here you can make your own notes and review previous notes. Type or scroll down to view your previous notes.",
-                 style: TextStyle(fontSize: 19),
+                 style: TextStyle(fontSize: 15),
+              ),
+              SizedBox(
+                height: 20,
               ),
               ElevatedButton(onPressed: () {
                 Navigator.push(context,
                   MaterialPageRoute(builder: (context) => Healthcare(),),);
               }, child: Text("Contact or send data to healthcare provider."),
               ),
+              SizedBox(
+                height: 20,
+              ),
             TextField(
                 controller: _content,
                 obscureText: false,
                 enableSuggestions: false,
-                autocorrect: false,
+                autocorrect: true,
+                maxLines: null,
+                keyboardType: TextInputType.multiline,
                 decoration: const InputDecoration(
                   hintText: "Enter your progress here.",
                 ),
@@ -44,6 +54,9 @@ class _SelfReport extends State<SelfReport> {
               ElevatedButton(onPressed: () {
                 FirebaseFirestore.instance.collection("entries").add({"Date": FieldValue.serverTimestamp(), "Content": _content.text, "User": FirebaseAuth.instance.currentUser?.uid});
               }, child: Text("Send:"),
+              ),
+              SizedBox(
+                height: 20,
               ),
               Flexible(
                   child: StreamBuilder(stream: FirebaseFirestore.instance.collection("entries").where("User", isEqualTo: FirebaseAuth.instance.currentUser?.uid).snapshots(),
@@ -57,9 +70,13 @@ class _SelfReport extends State<SelfReport> {
                           itemCount: notes.length,
                           itemBuilder: (context, index) {
                             return Card(
-                                child: Text(notes[index]["Content"])
+                              color: Colors.teal,
+                              child: Padding(
+                                  padding: EdgeInsetsGeometry.all(20),
+                                  child: Text(notes[index]["Content"])
+                              ),
                             );
-                          },
+                          }
                         );
                       }
                   )

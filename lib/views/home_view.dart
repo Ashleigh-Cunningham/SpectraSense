@@ -16,8 +16,10 @@ class _State extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.deepOrangeAccent,
       appBar: AppBar(
         title: const Text('SpectraSense'),
+        backgroundColor: Colors.deepOrangeAccent,
       ),
       body: Center(
         child: Column(
@@ -43,7 +45,7 @@ class _State extends State<HomeView> {
               Navigator.push(context, MaterialPageRoute(builder: (context) => SelfReport()));
 
 
-              }, child: Text("HAI!!! :3 :3 :3")),
+              }, child: Text("Self-reporting")),
               SizedBox(height: 40),
               Text(
                   'Your stats at a glance:',
