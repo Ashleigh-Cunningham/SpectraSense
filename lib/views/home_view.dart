@@ -52,7 +52,10 @@ class _State extends State<HomeView> {
                   style: TextStyle(fontSize: 24)),
               ElevatedButton(onPressed: () {
                 Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LoginView(),),);
+                  MaterialPageRoute(builder: (context) => const PopScope(
+                    canPop: false,
+                    child: LoginView(),
+                  )),);
               }, child: Text("Sign Out"),
               ),
             ]

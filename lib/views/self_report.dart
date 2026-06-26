@@ -9,6 +9,8 @@ import 'package:brigid/views/settings2.dart';
 import 'package:brigid/views/healthcare.dart';
 import 'package:brigid/main.dart';
 import 'package:intl/intl.dart';
+int? opioid = 0;
+int? feeling = 0;
 bool isDarkMode = false;
 class SelfReport extends StatefulWidget {
   const SelfReport({super.key});
@@ -52,8 +54,44 @@ class _SelfReport extends State<SelfReport> {
                   hintText: "Enter your progress here.",
                 ),
             ),
+              SizedBox(
+                height: 20,
+              ),
+              DropdownMenu(dropdownMenuEntries:
+              [
+                DropdownMenuEntry(value: 1, label: "1"),
+                DropdownMenuEntry(value: 2, label: "2"),
+                DropdownMenuEntry(value: 3, label: "3"),
+                DropdownMenuEntry(value: 4, label: "4"),
+                DropdownMenuEntry(value: 5, label: "5"),
+              ],
+              hintText: "Feelings about Opioid Use",
+              width: 300,
+              onSelected: (int? newValue) {
+                opioid = newValue;
+              },),
+              SizedBox(
+                height: 20,
+              ),
+              DropdownMenu(dropdownMenuEntries:
+              [
+                DropdownMenuEntry(value: 1, label: "1"),
+                DropdownMenuEntry(value: 2, label: "2"),
+                DropdownMenuEntry(value: 3, label: "3"),
+                DropdownMenuEntry(value: 4, label: "4"),
+                DropdownMenuEntry(value: 5, label: "5"),
+              ],
+              hintText: "Feelings overall today",
+              width: 300,
+                onSelected: (int? newValue) {
+                  feeling = newValue;
+                },),
+              SizedBox(
+                height: 20,
+              ),
               ElevatedButton(onPressed: () {
-                FirebaseFirestore.instance.collection("entries").add({"Date": FieldValue.serverTimestamp(), "Content": _content.text, "User": FirebaseAuth.instance.currentUser?.uid});
+                FirebaseFirestore.instance.collection("entries").add({"Date": FieldValue.serverTimestamp(), "Content": _content.text, "User": FirebaseAuth.instance.currentUser?.uid, "Opioid": opioid, "Feelings": feeling
+                });
               }, child: Text("Send:"),
               ),
               SizedBox(
@@ -73,13 +111,15 @@ class _SelfReport extends State<SelfReport> {
                             Timestamp timestamp= notes[index]["Date"] as Timestamp;
                             final DateTime dateTime = timestamp.toDate();
                             String formattedDate = DateFormat('MMMM d, yyyy \'at\' h:mm a').format(dateTime);
+                            var opioid2 = notes[index]["Opioid"].toString() ?? "None Provided";
+                            var feeling2 = notes[index]["Feelings"].toString() ?? "None Provided";
                             return Card(
                               color: Colors.teal,
-
                               child: Padding(
                                   padding: EdgeInsetsGeometry.all(20),
-                                  child: Text(notes[index]["Content"] + "\n" + "Recorded at: " + formattedDate)
+                                  child: Text(notes[index]["Content"] + "\n" + "You rated your opioid usage as: " + (opioid2)+ "\n" + "You rated your overall feelings as: " + (feeling2) + "\n" + "Recorded at: " + formattedDate + "\n"
                               ),
+                            ),
                             );
                           }
                         );
