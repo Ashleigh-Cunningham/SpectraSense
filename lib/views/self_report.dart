@@ -8,6 +8,7 @@ import 'package:brigid/views/view_data.dart';
 import 'package:brigid/views/settings2.dart';
 import 'package:brigid/views/healthcare.dart';
 import 'package:brigid/main.dart';
+import 'package:intl/intl.dart';
 bool isDarkMode = false;
 class SelfReport extends StatefulWidget {
   const SelfReport({super.key});
@@ -69,11 +70,15 @@ class _SelfReport extends State<SelfReport> {
                         return ListView.builder(
                           itemCount: notes.length,
                           itemBuilder: (context, index) {
+                            Timestamp timestamp= notes[index]["Date"] as Timestamp;
+                            final DateTime dateTime = timestamp.toDate();
+                            String formattedDate = DateFormat('MMMM d, yyyy \'at\' h:mm a').format(dateTime);
                             return Card(
                               color: Colors.teal,
+
                               child: Padding(
                                   padding: EdgeInsetsGeometry.all(20),
-                                  child: Text(notes[index]["Content"])
+                                  child: Text(notes[index]["Content"] + "\n" + "Recorded at: " + formattedDate)
                               ),
                             );
                           }
